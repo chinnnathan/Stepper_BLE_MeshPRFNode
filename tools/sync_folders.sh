@@ -11,5 +11,5 @@ sync_source_files()
 sync_header_files()
 {
     echo "Copy files from $1 to $2?"
-    find $1 -iname '*c' -exec cp --target-directory $2 {} \;
+    find $1 -iname '*h' -exec cp --target-directory $2 {} \;
 }

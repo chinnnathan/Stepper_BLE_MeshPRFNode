@@ -1,4 +1,4 @@
-# Install script for directory: /home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer
+# Install script for directory: /home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,15 +39,15 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/Core/cmake_install.cmake")
-  include("/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/Lib/cmake_install.cmake")
-  include("/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/Lib/Servo/cmake_install.cmake")
-  include("/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/Lib/intf/cmake_install.cmake")
-  include("/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/Lib/ble/cmake_install.cmake")
-  include("/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/Lib/utility/cmake_install.cmake")
-  include("/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/STM32_WPAN/cmake_install.cmake")
-  include("/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/Drivers/cmake_install.cmake")
-  include("/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/Utilities/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Drivers/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Core/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/Servo/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/intf/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/ble/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/utility/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Utilities/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/STM32_WPAN/cmake_install.cmake")
 
 endif()
 
@@ -59,5 +59,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

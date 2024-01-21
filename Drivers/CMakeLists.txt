@@ -6,16 +6,17 @@ message(STATUS "Adding the libname: ${libname}")
 
 set(libdeps
     "${libdeps}"
+    ${CMAKE_CURRENT_LIST_DIR}/BSP/P-NUCLEO-WB55.Nucleo/
     ${CMAKE_CURRENT_LIST_DIR}/CMSIS/Device/ST/STM32WBxx/Include
     ${CMAKE_CURRENT_LIST_DIR}/STM32WBxx_HAL_Driver/Inc
     # ${CMAKE_CURRENT_LIST_DIR}/STM32F1xx_HAL_Driver/Inc/Legacy
     ${CMAKE_CURRENT_LIST_DIR}/CMSIS/Include
-    ${CMAKE_CURRENT_LIST_DIR}/BSP/P-NUCLEO-WB55.Nucleo/
 )
 
 # Define library
 set ( srcs
     "${srcs}"
+    ${CMAKE_CURRENT_LIST_DIR}/BSP/P-NUCLEO-WB55.Nucleo/stm32wbxx_nucleo.c
     # ${CMAKE_CURRENT_LIST_DIR}/Startup/startup_stm32f103ctx.s
     
     ${CMAKE_CURRENT_LIST_DIR}/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal.c
@@ -44,7 +45,7 @@ set ( srcs
     ${CMAKE_CURRENT_LIST_DIR}/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_adc.c
     ${CMAKE_CURRENT_LIST_DIR}/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_rcc.c
 
-    ${CMAKE_CURRENT_LIST_DIR}/BSP/P-NUCLEO-WB55.Nucleo/stm32wbxx_nucleo.c
+    
 
 )
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/Lib/ble
+# Install script for directory: /home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/Lib/ble
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,14 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/arm-none-eabi-objdump")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/ble/ble_lld/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/ble/core/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/ble/mesh/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/ble/svc/cmake_install.cmake")
+
 endif()
 

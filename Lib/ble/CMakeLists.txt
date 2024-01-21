@@ -4,23 +4,22 @@ string(REPLACE " " "_" libname ${libname})
 
 message(STATUS "Adding the libname: ${libname}")
 
+
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/ble_lld)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/core)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/mesh)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/svc)
+
+
 set(libdeps
     "${libdeps}"
     ${CMAKE_CURRENT_LIST_DIR}/Inc
 )
 
 # Define library
-set ( srcs
-    "${srcs}"
-    ${CMAKE_CURRENT_LIST_DIR}/Src/ble_gap_aci.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/ble_gatt_aci.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/ble_hal_aci.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/ble_hci_le.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/ble_l2cap_aci.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/osal.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/p2p_stm.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/svc_ctl.c
-)
+# set ( srcs
+#     "${srcs}"
+# )
 
-set (srcs "${srcs}" PARENT_SCOPE)
+# set (srcs "${srcs}" PARENT_SCOPE)
 set (libdeps "${libdeps}" PARENT_SCOPE)

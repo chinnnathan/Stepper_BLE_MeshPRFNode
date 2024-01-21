@@ -1,4 +1,4 @@
-# Install script for directory: /home/nchinn/workspace/STM32/WB55_cmake/BLE_Servo_p2pServer/Lib/intf
+# Install script for directory: /home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/Lib/intf
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
