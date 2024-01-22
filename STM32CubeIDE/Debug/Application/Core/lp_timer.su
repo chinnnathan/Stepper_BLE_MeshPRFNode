@@ -1,0 +1,4 @@
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/Core/Src/lp_timer.c:50:6:LpTimerInit	8	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/Core/Src/lp_timer.c:63:6:LpTimerStart	16	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/Core/Src/lp_timer.c:96:10:LpGetElapsedTime	24	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/Core/Src/lp_timer.c:126:13:LpTimerCb	4	static

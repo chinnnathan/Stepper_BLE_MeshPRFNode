@@ -1,0 +1,2 @@
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/Middlewares/ST/STM32_WPAN/ble/svc/Src/mesh.c:99:6:MESH_Init	80	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/Middlewares/ST/STM32_WPAN/ble/svc/Src/mesh.c:247:6:Appli_ConfigurationInfoDump	16	static

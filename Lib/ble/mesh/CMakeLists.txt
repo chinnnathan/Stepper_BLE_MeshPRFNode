@@ -16,12 +16,11 @@ set ( srcs
 
     # ${CMAKE_CURRENT_LIST_DIR}/Src/appli_test.c
     ${CMAKE_CURRENT_LIST_DIR}/Src/mesh_cfg.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/serial_ctrl.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/serial_if.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/serial_prvn.c
-    ${CMAKE_CURRENT_LIST_DIR}/Src/serial_ut.c
+    # ${CMAKE_CURRENT_LIST_DIR}/Src/serial_ctrl.c
+    # ${CMAKE_CURRENT_LIST_DIR}/Src/serial_if.c
+    # ${CMAKE_CURRENT_LIST_DIR}/Src/serial_prvn.c
+    # ${CMAKE_CURRENT_LIST_DIR}/Src/serial_ut.c
 
-    ${CMAKE_CURRENT_LIST_DIR}/PAL/STM32WB/pal_nvm.c
 
     ${CMAKE_CURRENT_LIST_DIR}/MeshModel/Src/common.c
     ${CMAKE_CURRENT_LIST_DIR}/MeshModel/Src/config_client.c
@@ -34,6 +33,12 @@ set ( srcs
     ${CMAKE_CURRENT_LIST_DIR}/MeshModel/Src/sensors_client.c
     ${CMAKE_CURRENT_LIST_DIR}/MeshModel/Src/time_scene.c
     ${CMAKE_CURRENT_LIST_DIR}/MeshModel/Src/vendor.c
+
+    # ${CMAKE_CURRENT_LIST_DIR}/PAL/STM32WB/pal_nvm.c
+
+
+    # ${CMAKE_CURRENT_LIST_DIR}/Library/libBle_Mesh.cpp
+
 )
 
 set (srcs "${srcs}" PARENT_SCOPE)

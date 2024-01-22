@@ -39,9 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Drivers/cmake_install.cmake")
   include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Core/cmake_install.cmake")
   include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/cmake_install.cmake")
+  include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Drivers/cmake_install.cmake")
   include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/Servo/cmake_install.cmake")
   include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/intf/cmake_install.cmake")
   include("/home/nchinn/workspace/STM32/WB55_cmake/Stepper_BLE_MeshPRFNode/build/Lib/ble/cmake_install.cmake")

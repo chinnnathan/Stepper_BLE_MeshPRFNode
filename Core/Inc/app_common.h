@@ -33,9 +33,10 @@ extern "C"{
 
 #include "app_conf.h"
 
-/* -------------------------------- *
- *  Basic definitions               *
- * -------------------------------- */
+  /* -------------------------------- *
+   *  Basic definitions               *
+   * -------------------------------- */
+
 #undef NULL
 #define NULL                    0
 
@@ -45,23 +46,25 @@ extern "C"{
 #undef TRUE
 #define TRUE                    (!0)
 
-/* -------------------------------- *
- *  Critical Section definition     *
- * -------------------------------- */
+  /* -------------------------------- *
+   *  Critical Section definition     *
+   * -------------------------------- */
 #define BACKUP_PRIMASK()    uint32_t primask_bit= __get_PRIMASK()
 #define DISABLE_IRQ()       __disable_irq()
 #define RESTORE_PRIMASK()   __set_PRIMASK(primask_bit)
 
-/* -------------------------------- *
- *  Macro delimiters                *
- * -------------------------------- */
+  /* -------------------------------- *
+   *  Macro delimiters                *
+   * -------------------------------- */
+
 #define M_BEGIN     do {
 
 #define M_END       } while(0)
 
-/* -------------------------------- *
- *  Some useful macro definitions   *
- * -------------------------------- */
+  /* -------------------------------- *
+   *  Some useful macro definitions   *
+   * -------------------------------- */
+
 #ifndef MAX
 #define MAX( x, y )          (((x)>(y))?(x):(y))
 #endif
@@ -78,11 +81,6 @@ extern "C"{
 
 #define MODSUB( a, b, m )    MODADD( a, (m)-(b), m )
 
-#define PAUSE( t )           M_BEGIN \
-                               __IO int _i; \
-                               for ( _i = t; _i > 0; _i -- ); \
-                             M_END
-
 #define DIVF( x, y )         ((x)/(y))
 
 #define DIVC( x, y )         (((x)+(y)-1)/(y))
@@ -95,9 +93,9 @@ extern "C"{
 
 #define BITNSET( w, n, b )   M_BEGIN (w)[(n)/32] |= ((U32)(b))<<((n)%32); M_END
 
-/* -------------------------------- *
- *  Compiler                         *
- * -------------------------------- */
+  /* -------------------------------- *
+   *  Compiler                         *
+   * -------------------------------- */
 #define PLACE_IN_SECTION( __x__ )  __attribute__((section (__x__)))
 
 #ifdef WIN32
@@ -110,4 +108,4 @@ extern "C"{
 } /* extern "C" */
 #endif
 
-#endif /*APP_COMMON_H */
+#endif /* APP_COMMON_H */

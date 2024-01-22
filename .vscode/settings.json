@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "app_conf.h": "c",
+        "stm32wbxx_hal.h": "c",
+        "app_entry.h": "c",
+        "stm32wbxx_nucleo.h": "c",
+        "dbg_trace.h": "c",
+        "stm32wbxx_hal_adc.h": "c"
+    }
+}

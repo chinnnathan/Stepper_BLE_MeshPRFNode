@@ -28,7 +28,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "hci_tl.h"
-
+  
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -45,11 +45,11 @@ typedef enum
   APP_BLE_LP_CONNECTING,
   APP_BLE_CONNECTED_SERVER,
   APP_BLE_CONNECTED_CLIENT
-} APP_BLE_ConnStatus_t;
+} APP_BLE_ConnStatus_t;  
 
 /* USER CODE BEGIN ET */
 
-/* USER CODE END ET */
+/* USER CODE END ET */  
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
@@ -67,18 +67,10 @@ typedef enum
 /* USER CODE END EM */
 
 /* Exported functions ---------------------------------------------*/
-void APP_BLE_Init(void);
-APP_BLE_ConnStatus_t APP_BLE_Get_Server_Connection_Status(void);
-
-/* USER CODE BEGIN EF */
-void APP_BLE_Key_Button1_Action(void);
-void APP_BLE_Key_Button2_Action(void);
-void APP_BLE_Key_Button3_Action(void);
-
-/* USER CODE END EF */
+void APP_BLE_Init( void );
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /*APP_BLE_H */
+#endif /* APP_BLE_H */

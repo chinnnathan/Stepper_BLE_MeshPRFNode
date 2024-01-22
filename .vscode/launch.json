@@ -1,0 +1,90 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}/tools",
+            "executable": "${workspaceRoot}/build/BLE_p2pServer.elf",
+            "name": "Debug with OpenOCD",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": ["openocd-stlink.ocd", "flash_bootloader_app.ocd" ],
+            "searchDir": [],
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "gdbTarget": "localhost:3333",
+            
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/build/BLE_p2pServer.elf",
+            "name": "Debug External with OpenOCD",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "external",
+            "configFiles": ["tools/openocd-stlink.ocd", "tools/flash_bootloader_app.ocd" ],
+            "searchDir": [],
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "gdbTarget": "localhost:3333",
+            
+        },
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/BLE_p2pServer.elf",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb-multiarch",
+            "setupCommands": [
+                {
+                    "description": "Connect to openocd remote",
+                    "text": "target extended-remote localhost:3333",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "load symbol file",
+                    "text": "symbol-file build/BLE_p2pServer.elf",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "load symbol file",
+                    "text": "load",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Halt on entry I think",
+                    "text": "monitor reset halt",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                
+            ]
+        },
+        {
+            "name": "GDB",
+            "type": "gdb",
+            "request": "launch",
+            "cwd": "${workspaceRoot}",
+            "target": "${workspaceRoot}/build/BLE_p2pServer.elf",
+            "gdbpath" : "/usr/bin/gdb-multiarch",
+            "autorun": [
+                "target remote localhost:3333",
+                "symbol-file ./build/BLE_p2pServer.elf",
+                "monitor reset"
+                ]
+        }
+    ]
+}

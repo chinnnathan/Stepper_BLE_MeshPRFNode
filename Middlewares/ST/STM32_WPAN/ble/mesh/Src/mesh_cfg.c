@@ -1765,7 +1765,6 @@ MOBLE_RESULT Sensor_ModelPublishSet(model_publicationparams_t* pPublishParams)
 {return MOBLE_RESULT_NOTIMPL;}
 #endif
 #endif
-
 //__weak void Appli_Sensor_SerialCmd(char *rcvdStringBuff, uint16_t rcvdStringSize){}
          
 #ifndef ENABLE_LIGHT_MODEL_SERVER_LC

@@ -1852,3 +1852,9 @@ MOBLE_RESULT MoblePBADVStopProvisioning(void* param){return MOBLE_RESULT_SUCCESS
 /* PLEASE REFER TO THE .h file for different settings */
 
 
+__weak MOBLE_ADDRESS BLEMesh_GetAddress() 
+{
+    return (MOBLE_ADDRESS)0xDEAD;
+}
+
+

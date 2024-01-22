@@ -388,21 +388,7 @@ static void APPD_BleDtbCfg( void )
 void DbgOutputInit( void )
 {
 /* USER CODE BEGIN DbgOutputInit */
-#ifdef CFG_DEBUG_TRACE_UART
-  if (CFG_DEBUG_TRACE_UART == hw_lpuart1)
-  {
-#if(CFG_HW_LPUART1_ENABLED == 1)
-    MX_LPUART1_UART_Init();
-#endif
-  }
-  else if (CFG_DEBUG_TRACE_UART == hw_uart1)
-  {
-#if(CFG_HW_USART1_ENABLED == 1)
-    MX_USART1_UART_Init();
-#endif
-  }
-#endif
-
+	HW_UART_Init(CFG_DEBUG_TRACE_UART);
 /* USER CODE END DbgOutputInit */
   return;
 }
@@ -411,7 +397,6 @@ void DbgOutputTraces(  uint8_t *p_data, uint16_t size, void (*cb)(void) )
 {
 /* USER CODE END DbgOutputTraces */
   HW_UART_Transmit_DMA(CFG_DEBUG_TRACE_UART, p_data, size, cb);
-
 /* USER CODE END DbgOutputTraces */
   return;
 }

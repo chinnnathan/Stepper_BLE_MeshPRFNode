@@ -84,24 +84,18 @@ void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
+static void MX_RF_Init(void);
 static void MX_RTC_Init(void);
 static void MX_IPCC_Init(void);
 static void MX_RNG_Init(void);
 static void MX_ADC1_Init(void);
-static void MX_RF_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-// void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
-// {
-//     // Conversion Complete & DMA Transfer Complete As Well
-//     // So The AD_RES Is Now Updated & Let's Move IT To The PWM CCR1
-//     // Update The PWM Duty Cycle With Latest ADC Conversion Result
-//     printf("ADC_ConvCpltCallback: value_adc:0x%0x\n", value_adc);
-// }
+
 /* USER CODE END 0 */
 
 /**
@@ -132,7 +126,7 @@ int main(void)
   PeriphCommonClock_Config();
 
   /* IPCC initialisation */
-  MX_IPCC_Init();
+   MX_IPCC_Init();
 
   /* USER CODE BEGIN SysInit */
 
@@ -141,11 +135,14 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
+  MX_RF_Init();
   MX_RTC_Init();
   MX_RNG_Init();
   MX_ADC1_Init();
-  MX_RF_Init();
   /* USER CODE BEGIN 2 */
+  /* Enable CRC clock */
+  __HAL_RCC_CRC_CLK_ENABLE();
+
     HAL_ADCEx_Calibration_Start(&hadc1, 1);
     HAL_ADC_Start_DMA(&hadc1, &value_adc, 1);
     HAL_ADC_Stop(&hadc1);
@@ -418,11 +415,11 @@ void MX_USART1_UART_Init(void)
   {
     Error_Handler();
   }
-  if (HAL_UARTEx_SetRxFifoThreshold(&huart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart1, UART_RXFIFO_THRESHOLD_8_8) != HAL_OK)
   {
     Error_Handler();
   }
-  if (HAL_UARTEx_DisableFifoMode(&huart1) != HAL_OK)
+  if (HAL_UARTEx_EnableFifoMode(&huart1) != HAL_OK)
   {
     Error_Handler();
   }
@@ -535,7 +532,7 @@ static void MX_DMA_Init(void)
   __HAL_RCC_DMA2_CLK_ENABLE();
 
   /* DMA interrupt init */
-  /* DMA1_Channel1_IRQn interrupt configuration */
+/* DMA1_Channel1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
   /* DMA1_Channel4_IRQn interrupt configuration */
@@ -554,7 +551,7 @@ static void MX_DMA_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
+GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
@@ -563,7 +560,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  /*Configure GPIO pin Output Level */
+/*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, SN_3A_Pin|SN_4A_Pin|SN_34E_Pin|SN_12E_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
@@ -575,6 +572,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  GPIO_InitStruct.Pin = LMT_SW_pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SN_1A_Pin */
   GPIO_InitStruct.Pin = SN_1A_Pin;

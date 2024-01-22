@@ -25,7 +25,8 @@
 #include "stm32wbxx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "appli_mesh.h"
+#include "PWM_handlers.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,7 +36,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
- 
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -63,11 +64,11 @@ extern DMA_HandleTypeDef hdma_adc1;
 extern IPCC_HandleTypeDef hipcc;
 extern DMA_HandleTypeDef hdma_lpuart1_tx;
 extern DMA_HandleTypeDef hdma_usart1_tx;
+extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim2;
 extern UART_HandleTypeDef hlpuart1;
 extern UART_HandleTypeDef huart1;
 extern RTC_HandleTypeDef hrtc;
-extern TIM_HandleTypeDef htim1;
-
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -77,7 +78,7 @@ extern TIM_HandleTypeDef htim1;
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
-  */
+ */
 void NMI_Handler(void)
 {
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
@@ -90,11 +91,14 @@ void NMI_Handler(void)
 
 /**
   * @brief This function handles Hard fault interrupt.
-  */
+ */
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
-
+  BSP_LED_On(LED_RED);
+#ifndef DISABLE_TRACES
+  printf("HARDFAULT !\r\n");
+#endif
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
   {
@@ -150,7 +154,7 @@ void UsageFault_Handler(void)
 
 /**
   * @brief This function handles System service call via SWI instruction.
-  */
+ */
 void SVC_Handler(void)
 {
   /* USER CODE BEGIN SVCall_IRQn 0 */
@@ -163,7 +167,7 @@ void SVC_Handler(void)
 
 /**
   * @brief This function handles Debug monitor.
-  */
+ */
 void DebugMon_Handler(void)
 {
   /* USER CODE BEGIN DebugMonitor_IRQn 0 */
@@ -176,7 +180,7 @@ void DebugMon_Handler(void)
 
 /**
   * @brief This function handles Pendable request for system service.
-  */
+ */
 void PendSV_Handler(void)
 {
   /* USER CODE BEGIN PendSV_IRQn 0 */
@@ -189,13 +193,12 @@ void PendSV_Handler(void)
 
 /**
   * @brief This function handles System tick timer.
-  */
+ */
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
 
   /* USER CODE END SysTick_IRQn 0 */
-
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */

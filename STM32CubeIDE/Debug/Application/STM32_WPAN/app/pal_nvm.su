@@ -1,0 +1,7 @@
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/pal_nvm.c:43:20:GetPage	24	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/pal_nvm.c:66:11:PalNvmIsWriteProtected	4	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/pal_nvm.c:80:14:PalNvmRead	32	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/pal_nvm.c:118:14:PalNvmCompare	40	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/pal_nvm.c:180:14:PalNvmErase	16	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/pal_nvm.c:198:14:PalNvmWrite	40	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/pal_nvm.c:331:14:PalNvmProcess	4	static

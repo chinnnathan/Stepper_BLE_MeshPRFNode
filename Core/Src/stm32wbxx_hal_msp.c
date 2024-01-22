@@ -36,7 +36,7 @@ extern DMA_HandleTypeDef hdma_usart1_tx;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN Define */
- 
+
 /* USER CODE END Define */
 
 /* Private macro -------------------------------------------------------------*/
@@ -78,6 +78,7 @@ void HAL_MspInit(void)
   /* Peripheral interrupt init */
   /* HSEM_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(HSEM_IRQn, 0, 0);
+  /* HSEM_IRQn interrupt configuration */
   HAL_NVIC_EnableIRQ(HSEM_IRQn);
 
   /* USER CODE BEGIN MspInit 1 */
@@ -512,7 +513,7 @@ void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
     HAL_NVIC_SetPriority(RTC_WKUP_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(RTC_WKUP_IRQn);
   /* USER CODE BEGIN RTC_MspInit 1 */
-  HAL_RTCEx_EnableBypassShadow(hrtc);
+HAL_RTCEx_EnableBypassShadow(hrtc);
   /* USER CODE END RTC_MspInit 1 */
   }
 

@@ -14,6 +14,8 @@
 // constexpr uint32_t sum_val = 800; // 5 V
 uint32_t sum_val = 2100; // 10V
 
+constexpr uint16_t defaultDelay = 1;
+
 uint32_t step(uint8_t id, uint16_t delay)
 {
     HAL_ADC_Start(&hadc1);
@@ -158,13 +160,13 @@ void init_servo()
     // this value is the average
     printf("Average idle value: %lu\n", sum / numSteps);
 
-    sum = stepper.clockwise(1, 4 * numSteps);
+    sum = stepper.clockwise(defaultDelay, 4 * numSteps);
     printf("Stepping CW Value: %lu\n", sum / numSteps);
     sum_val = (sum / numSteps) * 2;
   
-    sum = stepper.counterclockwise(1, 4 * numSteps);
+    sum = stepper.counterclockwise(defaultDelay, 4 * numSteps);
     
-    stepper.counterclockwise(1, 150);
+    stepper.counterclockwise(defaultDelay, 150);
 
     printf("Stepping CCW Value: %lu\n", sum / numSteps);
     HAL_ADC_Stop(&hadc1);
@@ -176,14 +178,19 @@ void init_servo()
         stepC = 0;
         do
         {
-            sum = stepper.clockwise(1, 8);
+            sum = stepper.clockwise(defaultDelay, 8);
             stepC += 8;
             HAL_Delay(200);
-        } while (sum < sum_val);
+        // } while ((sum < sum_val) && (HAL_GPIO_ReadPin(GPIOA, LMT_SW_pin) != GPIO_PIN_SET));
+            if (HAL_GPIO_ReadPin(GPIOA, LMT_SW_pin))
+            {
+                HAL_Delay(200);
+            }
+        } while (HAL_GPIO_ReadPin(GPIOA, LMT_SW_pin) != GPIO_PIN_SET);
         stepper.ticks(stepC);
 
-        sum = stepper.counterclockwise(1, stepC);
-        sum_val += 100;
+        sum = stepper.counterclockwise(defaultDelay, stepC);
+        sum_val += 50;
         stepper.openCCW = true;
     }while (stepper.ticks() < 100);
  

@@ -1,0 +1,4 @@
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/appli_generic_client.c:59:14:Appli_Generic_OnOff_Status	32	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/appli_generic_client.c:142:14:Appli_Generic_DefaultTransitionTime_Status	24	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/appli_generic_client.c:162:14:Appli_Generic_PowerOnOff_Status	32	static
+/home/nchinn/workspace/STM32/WB55/WB55RG/BLE_MeshLightingPRFNode/STM32_WPAN/app/appli_generic_client.c:187:14:Appli_GenericClient_API	24	static

@@ -4,6 +4,10 @@ string(REPLACE " " "_" libname ${libname})
 
 message(STATUS "Adding the libname: ${libname}")
 
+set(libdeps
+    "${libdeps}"
+    ${CMAKE_CURRENT_LIST_DIR}/Inc
+)
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/ble_lld)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/core)
@@ -11,15 +15,10 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/mesh)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/svc)
 
 
-set(libdeps
-    "${libdeps}"
-    ${CMAKE_CURRENT_LIST_DIR}/Inc
+# Define library
+set ( srcs
+    "${srcs}"
 )
 
-# Define library
-# set ( srcs
-#     "${srcs}"
-# )
-
-# set (srcs "${srcs}" PARENT_SCOPE)
+set (srcs "${srcs}" PARENT_SCOPE)
 set (libdeps "${libdeps}" PARENT_SCOPE)

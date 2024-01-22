@@ -15,9 +15,9 @@ set(EXECUTABLE ${PROJECT_NAME}.elf)
 
 # set (srcs /home/nchinn/workspace/STM32/F407/MouseWiggle/startup_stm32f407xx.s)
 
-add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/Drivers)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/Core)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/Lib)
+add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/Drivers)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/Lib/Servo)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/Lib/intf)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/Lib/ble)
@@ -39,17 +39,23 @@ add_executable(${EXECUTABLE} "${srcs}")
 target_compile_definitions(${EXECUTABLE} PRIVATE
     -DUSE_HAL_DRIVER
     -DSTM32WB55xx
+    -DUSE_STM32WBXX_NUCLEO
+    -DENABLE_USART
     )
 
 target_include_directories(${EXECUTABLE} PRIVATE
     "${libdeps}"
     )
 
+target_link_libraries(${EXECUTABLE} PRIVATE
+    ${CMAKE_SOURCE_DIR}/Lib/ble/mesh/Library/libBle_Mesh_CM4_GCC.a
+    )
+
 target_compile_options(${EXECUTABLE} PRIVATE
     -mcpu=cortex-m4
     -mthumb
     -mfpu=fpv4-sp-d16
-    -mfloat-abi=soft
+    -mfloat-abi=hard
 
     -fdata-sections
     -ffunction-sections
@@ -70,7 +76,7 @@ target_link_options(${EXECUTABLE} PRIVATE
     -mcpu=cortex-m4
     -mthumb
     -mfpu=fpv4-sp-d16
-    -mfloat-abi=soft
+    -mfloat-abi=hard
     -specs=nosys.specs
     -lc
     -lm

@@ -19,8 +19,8 @@
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MAIN_H
-#define __MAIN_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -63,6 +63,9 @@ extern uint32_t value_adc;
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+void   MX_LPUART1_UART_Init(void);
+void   MX_USART1_UART_Init(void);
+#define LMT_SW_pin GPIO_PIN_5
 #define SN_3A_Pin GPIO_PIN_0
 #define SN_3A_GPIO_Port GPIOC
 #define SN_4A_Pin GPIO_PIN_1
@@ -75,7 +78,6 @@ extern uint32_t value_adc;
 #define SN_1A_GPIO_Port GPIOA
 #define SN_2A_Pin GPIO_PIN_1
 #define SN_2A_GPIO_Port GPIOA
-
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
@@ -84,4 +86,4 @@ extern uint32_t value_adc;
 }
 #endif
 
-#endif /* __MAIN_H */
+#endif /* MAIN_H */
